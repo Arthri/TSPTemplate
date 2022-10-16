@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build Options -->
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+    <Configurations>Release</Configurations>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <NoBuild>true</NoBuild>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- Package Information -->
+  <PropertyGroup>
+    <Authors>Arthri</Authors>
+    <Copyright>Copyright © 2022 Arthri</Copyright>
+    <Description>Templates for TSAPI/TShock-based projects.</Description>
+    <PackageId>TSPTemplate</PackageId>
+    <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
+    <PackageTags>terraria;tshock;plugin</PackageTags>
+    <PackageType>Template</PackageType>
+    <Title>TShock Plugin Templates</Title>
+    <Version>0.0.1</Version>
+  </PropertyGroup>
+
+  <!-- Packing Options -->
+  <PropertyGroup>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TemplateContent Include="templates/**/*.csproj" />
+    <TemplateContent Include="templates/**/*.cs" />
+    <TemplateContent Include="templates/**/*.json" />
+    <TemplateContent Include="templates/**/*.png" />
+    <TemplateContent Include="templates/**/*.ico" />
+
+    <Content Include="@(TemplateContent)" PackagePath="$(ContentTargetFolders)" Exclude="**/obj/**;**/packages/**" />
+  </ItemGroup>
+
+</Project>

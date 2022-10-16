@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "identity": "TSPTemplate.Plugin",
+    "author": "Arthri",
+    "classifications": [
+        "Library",
+        "Terraria",
+        "TShock",
+        "Plugin"
+    ],
+    "name": "TShock Plugin Template",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "shortName": "tsplugin",
+    "postActions": [
+        {
+            "condition": "(!skipRestore)",
+            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+            "description": "Restore NuGet packages required by this project.",
+            "continueOnError": true,
+            "args": {
+                "files": [
+                    "./Company.Plugin.csproj"
+                ]
+            },
+            "manualInstructions": [
+                {
+                    "text": "Run 'dotnet restore'"
+                }
+            ]
+        }
+    ],
+
+    "symbols": {
+        "skipRestore": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false",
+            "displayName": "Skip Solution Restore",
+            "description": "If true, skips the solution restore after creation."
+        },
+
+        "authors": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "Template.Authors",
+            "displayName": "Authors",
+            "description": "The authors of the plugin.",
+            "isRequired": true
+        },
+
+        "safePluginName": {
+            "type": "derived",
+            "datatype": "string",
+            "valueSource": "name",
+            "valueTransform": "SanitizeName",
+            "replaces": "PluginName",
+            "fileRename": "PluginName",
+            "displayName": "Safe Plugin Name",
+            "description": "The plugin class's sanitized name."
+        }
+    },
+    "forms": {
+        "SanitizeName": {
+            "identifier": "replace",
+            "pattern": "\\.",
+            "replacement": ""
+        }
+    },
+
+    "sourceName": "Company.Plugin",
+    "defaultName": "Plugin",
+    "preferNameDirectory": true
+}

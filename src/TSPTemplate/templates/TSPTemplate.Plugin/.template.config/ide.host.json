@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json.schemastore.org/vs-2017.3.host",
+    "symbolInfo": [
+        {
+            "isVisible": true,
+            "id": "authors",
+            "persistenceScope": "shared",
+            "persistenceScopeName": "TSPTemplate.Plugin"
+        }
+    ]
+}
